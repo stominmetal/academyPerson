@@ -31,8 +31,10 @@ public class Person {
         
         Integer month = Integer.parseInt(this.EGN.substring(2, 4));
 
-        // проверка за всички родени след 31.12.1999
-        if(month > 12){
+        // проверка за всички родени след 31.12.1899
+        if(month > 12 && month < 40){
+            month = month-20;
+        } else if(month > 40){ // проверка за всички родени след 31.12.1999
             month = month-40;
         }
         
