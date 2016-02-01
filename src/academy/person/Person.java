@@ -13,9 +13,9 @@ import java.util.logging.Logger;
  */
 public class Person {
     
-    public String firstName;
-    public String surname;
-    public String EGN;
+    private String firstName;
+    private String surname;
+    private String EGN;
 
     public Person(String firstName, String surname, String EGN) {
         this.firstName = firstName;
@@ -29,13 +29,18 @@ public class Person {
     
     public String monthOfBirth(){
         
-        String month = this.EGN.substring(2, 4);
+        Integer month = Integer.parseInt(this.EGN.substring(2, 4));
+
+        // проверка за всички родени след 31.12.1999
+        if(month > 12){
+            month = month-40;
+        }
         
         // check http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html
         
         Date date = null;
         try {
-            date = new SimpleDateFormat("M").parse(month);
+            date = new SimpleDateFormat("M").parse(month.toString());
         } catch (ParseException ex) {
             Logger.getLogger(Person.class.getName()).log(Level.SEVERE, null, ex);
         }
