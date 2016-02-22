@@ -13,9 +13,9 @@ import java.util.logging.Logger;
  */
 public class Person {
     
-    private String firstName;
-    private String surname;
-    private String EGN;
+    public  String firstName;
+    public String surname;
+    public String EGN;
 
     public Person(String firstName, String surname, String EGN) {
         this.firstName = firstName;
